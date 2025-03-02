@@ -1,11 +1,11 @@
-% Parámetros
+% Parameters
 n = 1; 
 delta_phi = linspace(0, 4*pi, 50);
 
 phi_S_values = 0:pi/2:2*pi;
 
-%Fases superconductoras
-phi_R = 0; % Fase de referencia
+%Superconducting phases
+phi_R = 0; % Reference phase
 phi_L = delta_phi + phi_R; % phi_L = delta_phi + phi_R (pero phi_R = 0)
 
 figure;
@@ -14,12 +14,12 @@ textSize = 18;
 num_curves = length(phi_S_values)-1;
 colors = winter(num_curves);
 
-% Grafica para la energía de Josephson H_S de la juntura superconductora en función de phi_S
+%Graphic for the Josephson energy H_S of the superconducting junction as a function of phi_S
 for i = 1:num_curves
     phi_S = phi_S_values(i);
     
-    E1 = @(delta_phi) -cos(delta_phi / 2) .* (n - 1/2); % Energía de la juntura aislante H_I
-    E2 = @(delta_phi) -cos((delta_phi + 0) / 2 - phi_S) .* (n - 1/2); % Energía de la juntura superconductora H_M
+    E1 = @(delta_phi) -cos(delta_phi / 2) .* (n - 1/2); %Energy of the insulating junction H_I
+    E2 = @(delta_phi) -cos((delta_phi + 0) / 2 - phi_S) .* (n - 1/2); %Energy of the superconducting junction H_M
 
     E_total = E1(delta_phi) + E2(delta_phi);
 
@@ -54,19 +54,18 @@ legend(legend_labels, 'Interpreter', 'latex', 'FontSize', textSize);
 hold off;
 
 
-% Grafica para la corriente de Josephson H_S de la juntura superconductora en función de phi_S
+%Graphic for the Josephson current I_S of the superconducting junction as a function of phi_S
 figure;
 textSize = 18;
 
 num_curves = length(phi_S_values)-1;
 colors = winter(num_curves);
 
-% Grafica para la energía de Josephson H_S de la juntura superconductora en función de phi_S
 for i = 1:num_curves
     phi_S = phi_S_values(i);
     
-    I1 = @(delta_phi) sin(delta_phi / 2) .* (n - 1/2); % Energía de la juntura aislante I_I
-    I2 = @(delta_phi) sin((phi_L + phi_R) / 2 - phi_S) .* (n - 1/2); % Corriente de la juntura superconductora I_M
+    I1 = @(delta_phi) sin(delta_phi / 2) .* (n - 1/2); %Current  of the insulating junction I_I
+    I2 = @(delta_phi) sin((phi_L + phi_R) / 2 - phi_S) .* (n - 1/2); %Current  of the superconducting junction I_M
 
     I_S = I1(delta_phi) + I2(delta_phi);
 
