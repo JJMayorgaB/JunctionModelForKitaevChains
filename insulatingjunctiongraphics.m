@@ -1,18 +1,18 @@
-% Parámetros
+% Parameters
 n = 1; 
 phi_S = (1/3)*pi;
 delta_phi = linspace(0, 4*pi, 200);
 
-E1 = @(delta_phi) -cos(delta_phi / 2) .* (n - 1/2); %Energía de la juntura aislante H_I
-I1 = @(delta_phi) sin(delta_phi / 2) .* (n - 1/2); %Corriente de la juntura aislante I_I
+E1 = @(delta_phi) -cos(delta_phi / 2) .* (n - 1/2); %Energy of the insulating junction H_I
+I1 = @(delta_phi) sin(delta_phi / 2) .* (n - 1/2); %Current  of the insulating junction I_I
 
-%Fases superconductoras
-phi_R = 0; % Fase de referencia
-phi_L = delta_phi + phi_R; % phi_L = delta_phi + phi_R (pero phi_R = 0)
+%Superconducting phases
+phi_R = 0; % Phase reference
+phi_L = delta_phi + phi_R; % phi_L = delta_phi + phi_R (but phi_R = 0)
 
-E2 = @(delta_phi) -cos((phi_L + phi_R) / 2 - phi_S) .* (n - 1/2); %Energía de la juntura superconductora H_S
+E2 = @(delta_phi) -cos((phi_L + phi_R) / 2 - phi_S) .* (n - 1/2); %Energy of the superconducting junction H_S
 
-%Grafica para la energía de Josephson H_I de la juntura aislante
+%Graphic for the Josephson energy H_I of the insulating junction
 figure;
 textSize = 18;
 
@@ -45,7 +45,7 @@ text(x_pos_red, y_pos_red, '$n=0$', 'Interpreter', 'latex', 'Color', 'r', 'FontS
 
 hold off
 
-%Grafica para la corriente Josephson I_I de la juntura aislante
+%Graphic for the Josephson current I_I of the insulating junction
 figure;
 textSize = 18;
 
@@ -80,16 +80,15 @@ text(x_pos_red, y_pos_red, '$n=0$', 'Interpreter', 'latex', 'Color', 'r', 'FontS
 
 hold off
 
-%Grafica para el termino efectivo superconductor vs. el termino efectivo
-%aislante
+%Graphic for the effective superconducting term vs. the insulating effecting term
 figure;
 textSize = 18;
 
-plot(delta_phi, E2(delta_phi), 'r', 'LineWidth', 1); %Termino superconductor
+plot(delta_phi, E2(delta_phi), 'r', 'LineWidth', 1); %Superconducting term
 
 hold on
 
-plot(delta_phi, E1(delta_phi), 'b', 'LineWidth', 1); %Termino aislante
+plot(delta_phi, E1(delta_phi), 'b', 'LineWidth', 1); %Insulating term
 
 xlabel('$\Delta\phi$', 'Interpreter', 'latex', 'FontSize', textSize);
 ylabel('$\langle H \rangle/\Delta$', 'Interpreter', 'latex', 'FontSize', textSize);
