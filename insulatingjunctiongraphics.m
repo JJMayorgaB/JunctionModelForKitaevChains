@@ -80,7 +80,7 @@ text(x_pos_red, y_pos_red, '$n=0$', 'Interpreter', 'latex', 'Color', 'r', 'FontS
 
 hold off
 
-%Graphic for the effective superconducting term vs. the insulating effecting term
+%Graphic for the effective superconducting term vs. the effective insulating term
 figure;
 textSize = 18;
 
