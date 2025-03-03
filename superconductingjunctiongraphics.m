@@ -9,7 +9,7 @@ phi_R = 0; % Reference phase
 phi_L = delta_phi + phi_R; % phi_L = delta_phi + phi_R (pero phi_R = 0)
 
 figure;
-textSize = 18;
+textSize = 22;
 
 num_curves = length(phi_S_values)-1;
 colors = winter(num_curves);
