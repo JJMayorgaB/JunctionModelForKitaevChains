@@ -14,7 +14,7 @@ E2 = @(delta_phi) -cos((phi_L + phi_R) / 2 - phi_S) .* (n - 1/2); %Energy of the
 
 %Graphic for the Josephson energy H_I of the insulating junction
 figure;
-textSize = 18;
+textSize = 22;
 
 plot(delta_phi, E1(delta_phi), 'b', 'LineWidth', 1);
 
